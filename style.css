@@ -1,0 +1,133 @@
+:root {
+    --font-menu-color: #AB2958;
+    --font-menu-active-color: #9e0e43;
+    --menu-height: 56px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #F6f6f6;
+}
+
+.tabs-wrap {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--menu-height) 1fr;
+    grid-gap: 1px red;
+    
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 50px 0;
+    width: 60%;
+    height: 70vh;
+    
+    border-radius: 5px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-list {
+    position: relative;
+    display: flex;
+    height: 100%;
+    background-color: coral;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.menu-item {
+    position: relative;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    line-height: calc(var(--menu-height) - 10px);
+    text-align: center;
+    font-size: 24px;
+    padding: 0 30px;
+    color: var(--font-menu-color);
+    cursor: pointer;
+   /*  transition: all 1s; */
+}
+
+.menu-item span, .menu-item .tab-icon {
+    opacity: 0.5;
+}
+
+.menu-line {
+    position: absolute;
+    background-color: var(--font-menu-color);
+    height: 5px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.menu-item.active span, .menu-item.active .tab-icon {
+    opacity: 1;
+}
+
+.menu-item:hover {
+    background-color: #FEF8FB;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-color: #FBDCE6;
+}
+
+.tab-icon {
+    padding-right: 5px;
+}
+
+.menu-item:hover > .tab-icon {
+    opacity: 1;
+}
+
+.menu-item:hover::after{
+    opacity: 1;
+    animation: slide linear 1s;
+    z-index: -1;
+}
+
+.tab-content {
+    position: absolute;
+    display: block;
+    padding: 30px 30px;
+    visibility: hidden;
+    animation: fade-out linear 3s;
+}
+
+.tab-content.active {
+    transition: opacity 1s;
+    visibility: visible;
+    animation: fade-in linear 0.4s;
+}
+
+@keyframes fade-in {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+    }
+}
