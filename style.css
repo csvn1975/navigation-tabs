@@ -24,28 +24,27 @@ body {
     grid-template-rows: var(--menu-height) 1fr;
     grid-gap: 1px red;
     
+    width: 60%;
+    height: 70vh;
+    padding: 50px 0;
+    
     top: 50%;
     left:50%;
     transform: translate(-50%, -50%);
-    padding: 50px 0;
-    width: 60%;
-    height: 70vh;
     
     border-radius: 5px;
     background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .menu-list {
     position: relative;
     display: flex;
     height: 100%;
-    background-color: coral;
+    padding: 0 30px;
+
     justify-content: center;
     align-items: center;
-    padding: 0 30px;
+    background-color: coral;
 }
 
 .menu-item {
